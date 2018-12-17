@@ -21,12 +21,56 @@ namespace XHLaunchAd.Sample
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
+
+            InitLoadVideoAd();
+
+            return true;
+        }
+
+        private void InitLoadImageAd()
+        {
             XHLaunchAd.SetLaunchSourceType(SourceType.Image);
             XHLaunchImageAdConfiguration imageAdConfiguration = XHLaunchImageAdConfiguration.DefaultConfiguration;
-            imageAdConfiguration.ImageNameOrURLString = "image0.jpg";
+            imageAdConfiguration.Duration = 5;
+            imageAdConfiguration.Frame = new CoreGraphics.CGRect(0, 0, UIScreen.MainScreen.Bounds.Size.Width, UIScreen.MainScreen.Bounds.Height);
+            imageAdConfiguration.ImageNameOrURLString = "image12.gif";
+            imageAdConfiguration.ContentMode = UIViewContentMode.ScaleAspectFill;
+            imageAdConfiguration.GIFImageCycleOnce = true;
+            imageAdConfiguration.ShowFinishAnimate = ShowFinishAnimate.FlipFromLeft;
+            imageAdConfiguration.ShowFinishAnimateTime = 0.8f;
+            imageAdConfiguration.SkipButtonType = SkipType.TimeText;
+            imageAdConfiguration.ShowEnterForeground = true;
             imageAdConfiguration.OpenModel = new NSString("https://www.baidu.com");
             XHLaunchAd.ImageAdWithImageAdConfiguration(imageAdConfiguration, this);
-            return true;
+        }
+
+        private void InitLoadVideoAd()
+        {
+            XHLaunchAd.SetLaunchSourceType(SourceType.Image);
+            XHLaunchVideoAdConfiguration videoAdConfiguration = XHLaunchVideoAdConfiguration.DefaultConfiguration;
+            videoAdConfiguration.VideoNameOrURLString = "video0.mp4";
+            videoAdConfiguration.OpenModel = new NSString("https://www.baidu.com");
+            XHLaunchAd.VideoAdWithVideoAdConfiguration(videoAdConfiguration, this);
+        }
+
+        private void InitNetworkImageAd()
+        {
+            XHLaunchAd.SetLaunchSourceType(SourceType.Image);
+            XHLaunchAd.SetWaitDataDuration(5);
+
+            XHLaunchImageAdConfiguration imageAdConfiguration = XHLaunchImageAdConfiguration.DefaultConfiguration;
+            imageAdConfiguration.Duration = 5;
+            imageAdConfiguration.Frame = new CoreGraphics.CGRect(0, 0, UIScreen.MainScreen.Bounds.Size.Width, UIScreen.MainScreen.Bounds.Height);
+            imageAdConfiguration.ImageNameOrURLString = "https://upload-images.jianshu.io/upload_images/4421101-1301dea142ae4bd2.png";
+            imageAdConfiguration.ContentMode = UIViewContentMode.ScaleAspectFill;
+            imageAdConfiguration.GIFImageCycleOnce = true;
+            imageAdConfiguration.ImageOption = XHLaunchAdImageOptions.Default;
+            imageAdConfiguration.ShowFinishAnimate = ShowFinishAnimate.FlipFromLeft;
+            imageAdConfiguration.ShowFinishAnimateTime = 0.8f;
+            imageAdConfiguration.SkipButtonType = SkipType.TimeText;
+            imageAdConfiguration.ShowEnterForeground = true;
+            imageAdConfiguration.OpenModel = new NSString("https://www.baidu.com");
+            XHLaunchAd.ImageAdWithImageAdConfiguration(imageAdConfiguration, this);
         }
 
         public override void OnResignActivation(UIApplication application)
