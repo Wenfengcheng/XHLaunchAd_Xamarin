@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,6 +10,19 @@
     <RootNamespace>XHLaunchAd</RootNamespace>
     <AssemblyName>XHLaunchAd</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>Xamarin.iOS.XHLaunchAd</PackageId>
+    <PackageVersion>3.9.8</PackageVersion>
+    <Authors>WenfengCheng</Authors>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Owners>WenfengCheng, Funky_Xamarin</Owners>
+    <PackageProjectUrl>https://github.com/Wenfengcheng/FLAnimatedImage_Xamarin</PackageProjectUrl>
+    <PackageReleaseNotes>Release XHLaunchAd_Xamarin.iOS 3.9.8</PackageReleaseNotes>
+    <Summary>Xamarin.iOS Binding Library - XHLaunchAd</Summary>
+    <PackageTags>Xamarin.iOS,  Xamarin, XHLaunchAd, LaunchScreen, Ad, Gif, Video, Image</PackageTags>
+    <Title>Funky - XHLaunchAd</Title>
+    <Description>Xamarin.iOS.XHLaunchAd</Description>
+    <PackageLicenseUrl>https://github.com/Wenfengcheng/FLAnimatedImage_Xamarin/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,5 +67,9 @@
       <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets')" />
 </Project>
