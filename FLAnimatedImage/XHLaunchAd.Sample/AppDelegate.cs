@@ -22,7 +22,7 @@ namespace XHLaunchAd.Sample
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
 
-            InitLoadVideoAd();
+            InitNetworkVideoAd();
 
             return true;
         }
@@ -44,12 +44,15 @@ namespace XHLaunchAd.Sample
             XHLaunchAd.ImageAdWithImageAdConfiguration(imageAdConfiguration, this);
         }
 
-        private void InitLoadVideoAd()
+        private void InitNetworkVideoAd()
         {
             XHLaunchAd.SetLaunchSourceType(SourceType.Image);
+            XHLaunchAd.SetWaitDataDuration(3);
             XHLaunchVideoAdConfiguration videoAdConfiguration = XHLaunchVideoAdConfiguration.DefaultConfiguration;
-            videoAdConfiguration.VideoNameOrURLString = "video0.mp4";
+            videoAdConfiguration.VideoNameOrURLString = "https://0.s3.envato.com/h264-video-previews/80fad324-9db4-11e3-bf3d-0050569255a8/490527.mp4";
+            videoAdConfiguration.Duration = 8;
             videoAdConfiguration.OpenModel = new NSString("https://www.baidu.com");
+            videoAdConfiguration.ShowEnterForeground = true;
             XHLaunchAd.VideoAdWithVideoAdConfiguration(videoAdConfiguration, this);
         }
 
@@ -72,6 +75,17 @@ namespace XHLaunchAd.Sample
             imageAdConfiguration.OpenModel = new NSString("https://www.baidu.com");
             XHLaunchAd.ImageAdWithImageAdConfiguration(imageAdConfiguration, this);
         }
+
+
+        private void InitLoadVideoAd()
+        {
+            XHLaunchAd.SetLaunchSourceType(SourceType.Image);
+            XHLaunchVideoAdConfiguration videoAdConfiguration = XHLaunchVideoAdConfiguration.DefaultConfiguration;
+            videoAdConfiguration.VideoNameOrURLString = "video0.mp4";
+            videoAdConfiguration.OpenModel = new NSString("https://www.baidu.com");
+            XHLaunchAd.VideoAdWithVideoAdConfiguration(videoAdConfiguration, this);
+        }
+
 
         public override void OnResignActivation(UIApplication application)
         {

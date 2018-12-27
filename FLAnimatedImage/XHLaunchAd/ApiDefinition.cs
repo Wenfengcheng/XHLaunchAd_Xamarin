@@ -6,6 +6,7 @@ using Foundation;
 using MediaPlayer;
 using ObjCRuntime;
 using UIKit;
+using AVFoundation;
 
 namespace XHLaunchAd
 {
@@ -231,8 +232,8 @@ namespace XHLaunchAd
         MPMovieScalingMode ScalingMode { get; set; }
 
         // @property (copy, nonatomic) AVLayerVideoGravity _Nonnull videoGravity;
-        [Export("videoGravity")]
-        string VideoGravity { get; set; }
+        [Export("videoGravity", ArgumentSemantic.Copy)]
+        AVLayerVideoGravity VideoGravity { get; set; }
 
         // @property (assign, nonatomic) BOOL videoCycleOnce;
         [Export("videoCycleOnce")]
