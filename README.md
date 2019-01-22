@@ -1,8 +1,13 @@
 # XHLaunchAd_Xamarin
 
+[![Version Status](https://img.shields.io/cocoapods/v/XHLaunchAd.svg?style=flat)](http://cocoadocs.org/docsets/XHLaunchAd)
+
 Port to Xamarin.iOS of the [XHLaunchAd](https://github.com/CoderZhuXH/XHLaunchAd).
 
 **LaunchScreen advertising solutions - support static / dynamic image and mp4 video ads**
+
+## NuGet
+* [Xamarin.iOS.XHLaunchAd](https://www.nuget.org/packages/Xamarin.iOS.XHLaunchAd) [![NuGet](https://img.shields.io/nuget/v/Xamarin.iOS.XHLaunchAd.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.iOS.XHLaunchAd)
 
 ### Features:
 
