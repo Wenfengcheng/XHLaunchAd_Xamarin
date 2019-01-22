@@ -34,11 +34,11 @@ namespace FLAnimatedImage
     }
 
     [Static]
-    partial interface Constants
+    partial interface FLAnimatedImageDelayTime
     {
         // extern const NSTimeInterval kFLAnimatedImageDelayTimeIntervalMinimum;
         [Field("kFLAnimatedImageDelayTimeIntervalMinimum", "__Internal")]
-        double kFLAnimatedImageDelayTimeIntervalMinimum { get; }
+        double IntervalMinimum { get; }
     }
 
     // @interface FLAnimatedImage : NSObject

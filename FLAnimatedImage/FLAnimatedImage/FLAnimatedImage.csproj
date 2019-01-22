@@ -12,12 +12,12 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>Xamarin.iOS.FLAnimatedImage</PackageId>
-    <PackageVersion>1.0.12</PackageVersion>
+    <PackageVersion>1.0.12.1</PackageVersion>
     <Authors>WenfengCheng</Authors>
     <NeutralLanguage>en</NeutralLanguage>
     <Owners>WenfengCheng, Funky_Xamarin</Owners>
     <PackageProjectUrl>https://github.com/Wenfengcheng/FLAnimatedImage_Xamarin</PackageProjectUrl>
-    <PackageReleaseNotes>Release FLAnimatedImage_Xamarin.iOS 1.0.12</PackageReleaseNotes>
+    <PackageReleaseNotes>Release FLAnimatedImage_Xamarin.iOS 1.0.12.1</PackageReleaseNotes>
     <Summary>Xamarin.iOS Binding Library - FLAnimatedImage</Summary>
     <PackageTags>Xamarin.iOS,  Xamarin, FLAnimatedImage, Image, Pop, Gif</PackageTags>
     <Title>Funky - FLAnimatedImage</Title>

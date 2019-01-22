@@ -22,6 +22,13 @@ namespace XHLaunchAd
     // typedef void (^XHLaunchAdBatchDownLoadAndCacheCompletedBlock)(NSArray * _Nonnull);
     delegate void XHLaunchAdBatchDownLoadAndCacheCompletedBlock(NSObject[] arg0);
 
+
+    partial interface IXHLaunchAdDownloadDelegate
+    {
+
+    }
+
+
     // @protocol XHLaunchAdDownloadDelegate <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -38,7 +45,7 @@ namespace XHLaunchAd
     interface XHLaunchAdDownload
     {
         [Wrap("WeakDelegate")]
-        XHLaunchAdDownloadDelegate Delegate { get; set; }
+        IXHLaunchAdDownloadDelegate Delegate { get; set; }
 
         // @property (assign, nonatomic) id<XHLaunchAdDownloadDelegate> _Nonnull delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Assign)]
@@ -109,7 +116,7 @@ namespace XHLaunchAd
     }
 
     [Static]
-    partial interface Constants
+    partial interface XHLaunchAdConstants
     {
         // extern NSString *const XHCacheImageUrlStringKey __attribute__((visibility("default")));
         [Field("XHCacheImageUrlStringKey", "__Internal")]
@@ -258,6 +265,12 @@ namespace XHLaunchAd
         IntPtr Constructor(SourceType sourceType);
     }
 
+    partial interface IXHLaunchAdDelegate
+    {
+
+    }
+
+
     // @protocol XHLaunchAdDelegate <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -265,23 +278,23 @@ namespace XHLaunchAd
     {
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd clickAndOpenModel:(id _Nonnull)openModel clickPoint:(CGPoint)clickPoint;
         [Export("xhLaunchAd:clickAndOpenModel:clickPoint:")]
-        void XhLaunchAd(XHLaunchAd launchAd, NSObject openModel, CGPoint clickPoint);
+        void ClickAndOpenModel(XHLaunchAd launchAd, NSObject openModel, CGPoint clickPoint);
 
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd imageDownLoadFinish:(UIImage * _Nonnull)image imageData:(NSData * _Nonnull)imageData;
         [Export("xhLaunchAd:imageDownLoadFinish:imageData:")]
-        void XhLaunchAd(XHLaunchAd launchAd, UIImage image, NSData imageData);
+        void ImageDownLoadFinish(XHLaunchAd launchAd, UIImage image, NSData imageData);
 
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd videoDownLoadFinish:(NSURL * _Nonnull)pathURL;
         [Export("xhLaunchAd:videoDownLoadFinish:")]
-        void XhLaunchAd(XHLaunchAd launchAd, NSUrl pathURL);
+        void VideoDownLoadFinish(XHLaunchAd launchAd, NSUrl pathURL);
 
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd videoDownLoadProgress:(float)progress total:(unsigned long long)total current:(unsigned long long)current;
         [Export("xhLaunchAd:videoDownLoadProgress:total:current:")]
-        void XhLaunchAd(XHLaunchAd launchAd, float progress, ulong total, ulong current);
+        void VideoDownLoadProgress(XHLaunchAd launchAd, float progress, ulong total, ulong current);
 
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd customSkipView:(UIView * _Nonnull)customSkipView duration:(NSInteger)duration;
         [Export("xhLaunchAd:customSkipView:duration:")]
-        void XhLaunchAd(XHLaunchAd launchAd, UIView customSkipView, nint duration);
+        void CustomSkipView(XHLaunchAd launchAd, UIView customSkipView, nint duration);
 
         // @optional -(void)xhLaunchAdShowFinish:(XHLaunchAd * _Nonnull)launchAd;
         [Export("xhLaunchAdShowFinish:")]
@@ -289,19 +302,19 @@ namespace XHLaunchAd
 
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd launchAdImageView:(UIImageView * _Nonnull)launchAdImageView URL:(NSURL * _Nonnull)url;
         [Export("xhLaunchAd:launchAdImageView:URL:")]
-        void XhLaunchAd(XHLaunchAd launchAd, UIImageView launchAdImageView, NSUrl url);
+        void LaunchAdImageView(XHLaunchAd launchAd, UIImageView launchAdImageView, NSUrl url);
 
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd clickAndOpenURLString:(NSString * _Nonnull)openURLString __attribute__((deprecated("请使用xhLaunchAd:clickAndOpenModel:clickPoint:")));
         [Export("xhLaunchAd:clickAndOpenURLString:")]
-        void XhLaunchAd(XHLaunchAd launchAd, string openURLString);
+        void ClickAndOpenURLString(XHLaunchAd launchAd, string openURLString);
 
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd clickAndOpenURLString:(NSString * _Nonnull)openURLString clickPoint:(CGPoint)clickPoint __attribute__((deprecated("请使用xhLaunchAd:clickAndOpenModel:clickPoint:")));
         [Export("xhLaunchAd:clickAndOpenURLString:clickPoint:")]
-        void XhLaunchAd(XHLaunchAd launchAd, string openURLString, CGPoint clickPoint);
+        void ClickAndOpenURLString(XHLaunchAd launchAd, string openURLString, CGPoint clickPoint);
 
         // @optional -(void)xhLaunchAd:(XHLaunchAd * _Nonnull)launchAd imageDownLoadFinish:(UIImage * _Nonnull)image __attribute__((deprecated("请使用xhLaunchAd:imageDownLoadFinish:imageData:")));
         [Export("xhLaunchAd:imageDownLoadFinish:")]
-        void XhLaunchAd(XHLaunchAd launchAd, UIImage image);
+        void ImageDownLoadFinish(XHLaunchAd launchAd, UIImage image);
 
         // @optional -(void)xhLaunchShowFinish:(XHLaunchAd * _Nonnull)launchAd __attribute__((deprecated("请使用xhLaunchAdShowFinish:")));
         [Export("xhLaunchShowFinish:")]
@@ -313,7 +326,7 @@ namespace XHLaunchAd
     interface XHLaunchAd
     {
         [Wrap("WeakDelegate")]
-        XHLaunchAdDelegate Delegate { get; set; }
+        IXHLaunchAdDelegate Delegate { get; set; }
 
         // @property (assign, nonatomic) id<XHLaunchAdDelegate> _Nonnull delegate;
         [NullAllowed, Export("delegate", ArgumentSemantic.Assign)]
@@ -602,7 +615,7 @@ namespace XHLaunchAd
 
         // @property (assign, nonatomic) AVLayerVideoGravity videoGravity;
         [Export("videoGravity")]
-        string VideoGravity { get; set; }
+        AVLayerVideoGravity VideoGravity { get; set; }
 
         // @property (assign, nonatomic) BOOL videoCycleOnce;
         [Export("videoCycleOnce")]
