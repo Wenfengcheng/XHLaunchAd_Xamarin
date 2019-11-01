@@ -1,13 +1,16 @@
 # XHLaunchAd_Xamarin
 
 [![Version Status](https://img.shields.io/cocoapods/v/XHLaunchAd.svg?style=flat)](http://cocoadocs.org/docsets/XHLaunchAd)
-
 Port to Xamarin.iOS of the [XHLaunchAd](https://github.com/CoderZhuXH/XHLaunchAd).
 
-**LaunchScreen advertising solutions - support static / dynamic image and mp4 video ads**
+[![Version Status](https://img.shields.io/cocoapods/v/FLAnimatedImage.svg?style=flat)](http://cocoadocs.org/docsets/FLAnimatedImage)
+Port to Xamarin.iOS of the [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) supporting animated GIF ad.
+
+**LaunchScreen advertising solutions - support static / dynamic image and mp4 video ads**.
 
 ## NuGet
 * [Xamarin.iOS.XHLaunchAd](https://www.nuget.org/packages/Xamarin.iOS.XHLaunchAd) [![NuGet](https://img.shields.io/nuget/v/Xamarin.iOS.XHLaunchAd.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.iOS.XHLaunchAd)
+* [Xamarin.iOS.FLAnimatedImage](https://www.nuget.org/packages/Xamarin.iOS.FLAnimatedImage) [![NuGet](https://img.shields.io/nuget/v/Xamarin.iOS.FLAnimatedImage.svg?label=NuGet)](https://www.nuget.org/packages/Xamarin.iOS.FLAnimatedImage)
 
 ### Features:
 
@@ -29,7 +32,7 @@ Port to Xamarin.iOS of the [XHLaunchAd](https://github.com/CoderZhuXH/XHLaunchAd
 ## Screenshots
 
 ![](/ScreenShot/ScreenShot00.gif) ![](/ScreenShot/ScreenShot01.gif) ![](/ScreenShot/ScreenShot02.gif)
-![](/ScreenShot/ScreenShot04.gif) ![](/ScreenShot/ScreenShot05.gif)  ![](/ScreenShot/ScreenShot06.gif)
+![](/ScreenShot/ScreenShot04.gif) ![](/ScreenShot/ScreenShot05.gif) ![](/ScreenShot/ScreenShot06.gif)
 
 ## How to use
 Please reference [the sample project](https://github.com/Wenfengcheng/FLAnimatedImage_Xamarin/blob/master/FLAnimatedImage/XHLaunchAd.Sample/AppDelegate.cs).
