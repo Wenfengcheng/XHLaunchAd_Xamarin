@@ -7,7 +7,7 @@ namespace XHLaunchAd.Sample
     // The UIApplicationDelegate for the application. This class is responsible for launching the
     // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
     [Register("AppDelegate")]
-    public class AppDelegate : UIApplicationDelegate
+    public class AppDelegate : UIApplicationDelegate, IXHLaunchAdDelegate
     {
         // class-level declarations
 
@@ -22,7 +22,7 @@ namespace XHLaunchAd.Sample
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
 
-            InitNetworkVideoAd();
+            InitLoadImageAd();
 
             return true;
         }
@@ -38,7 +38,7 @@ namespace XHLaunchAd.Sample
             imageAdConfiguration.GIFImageCycleOnce = true;
             imageAdConfiguration.ShowFinishAnimate = ShowFinishAnimate.FlipFromLeft;
             imageAdConfiguration.ShowFinishAnimateTime = 0.8f;
-            imageAdConfiguration.SkipButtonType = SkipType.TimeText;
+            imageAdConfiguration.SkipButtonType = SkipType.None;
             imageAdConfiguration.ShowEnterForeground = true;
             imageAdConfiguration.OpenModel = new NSString("https://www.baidu.com");
             XHLaunchAd.ImageAdWithImageAdConfiguration(imageAdConfiguration, this);
@@ -47,7 +47,7 @@ namespace XHLaunchAd.Sample
         private void InitNetworkVideoAd()
         {
             XHLaunchAd.SetLaunchSourceType(SourceType.Image);
-            XHLaunchAd.SetWaitDataDuration(3);
+            XHLaunchAd.SetWaitDataDuration(5);
             XHLaunchVideoAdConfiguration videoAdConfiguration = XHLaunchVideoAdConfiguration.DefaultConfiguration;
             videoAdConfiguration.VideoNameOrURLString = "https://0.s3.envato.com/h264-video-previews/80fad324-9db4-11e3-bf3d-0050569255a8/490527.mp4";
             videoAdConfiguration.Duration = 8;
@@ -86,6 +86,34 @@ namespace XHLaunchAd.Sample
             XHLaunchAd.VideoAdWithVideoAdConfiguration(videoAdConfiguration, this);
         }
 
+        [Export("xhLaunchAd:clickAtOpenModel:clickPoint:")]
+        public bool ClickAtOpenModel(XHLaunchAd launchAd, NSObject openModel, CoreGraphics.CGPoint clickPoint)
+        {
+            System.Diagnostics.Debug.WriteLine("广告点击事件");
+
+            //openModel即配置广告数据设置的点击广告时打开页面参数(configuration.openModel)
+
+            if (openModel == null)
+                return false;
+
+            System.Diagnostics.Debug.WriteLine((NSString)openModel);
+
+            return true;//YES移除广告,NO不移除广告
+        }
+
+        [Export("xhLaunchAd:clickAndOpenModel:clickPoint:")]
+        public void ClickAndOpenModel(XHLaunchAd launchAd, NSObject openModel, CoreGraphics.CGPoint clickPoint)
+        {
+            System.Diagnostics.Debug.WriteLine("广告点击事件");
+
+            //openModel即配置广告数据设置的点击广告时打开页面参数(configuration.openModel)
+
+            if (openModel == null)
+                return;
+
+            System.Diagnostics.Debug.WriteLine((NSString)openModel);
+
+        }
 
         public override void OnResignActivation(UIApplication application)
         {

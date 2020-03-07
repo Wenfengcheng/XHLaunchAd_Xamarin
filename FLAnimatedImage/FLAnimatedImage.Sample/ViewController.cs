@@ -16,7 +16,7 @@ namespace FLAnimatedImage.Sample
         {
             base.ViewDidLoad();
 
-            FLAnimatedImage image = new FLAnimatedImage(NSData.FromUrl(NSUrl.FromString("https://upload.wikimedia.org/wikipedia/commons/2/2c/Rotating_earth_%28large%29.gif")));
+            FLAnimatedImage image = new FLAnimatedImage(NSData.FromUrl(NSUrl.FromString("https://cloud.githubusercontent.com/assets/1567433/10417835/1c97e436-7052-11e5-8fb5-69373072a5a0.gif")));
             FLAnimatedImageView imageView = new FLAnimatedImageView()
             {
                 AnimatedImage = image,

@@ -14,6 +14,7 @@ namespace XHLaunchAd.Sample
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            this.View.BackgroundColor = UIColor.Red;
             // Perform any additional setup after loading the view, typically from a nib.
         }
 
